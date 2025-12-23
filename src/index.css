@@ -1,3 +1,215 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 45 100% 96%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 45 100% 96%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 45 100% 96%;
+
+    --primary: 32 95% 55%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 30% 15%;
+    --secondary-foreground: 45 100% 96%;
+
+    --muted: 222 30% 12%;
+    --muted-foreground: 222 20% 55%;
+
+    --accent: 32 80% 45%;
+    --accent-foreground: 45 100% 96%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 45 100% 96%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 222 47% 6%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 6%;
+
+    --danger: 0 84% 60%;
+    --danger-foreground: 45 100% 96%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 15%;
+    --ring: 32 95% 55%;
+
+    --radius: 0.75rem;
+
+    --sun-glow: 32 100% 50%;
+    --sun-core: 45 100% 70%;
+    --planet-blue: 200 80% 50%;
+    --star-white: 45 100% 98%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 45 100% 96%;
+    --sidebar-primary: 32 95% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 15%;
+    --sidebar-accent-foreground: 45 100% 96%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 32 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .sun-glow {
+    box-shadow: 
+      0 0 60px hsl(var(--sun-glow) / 0.4),
+      0 0 120px hsl(var(--sun-glow) / 0.2),
+      0 0 200px hsl(var(--sun-glow) / 0.1);
+  }
+
+  .planet-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--planet-blue) / 0.5),
+      0 0 40px hsl(var(--planet-blue) / 0.3);
+  }
+
+  .card-glow {
+    box-shadow: 
+      0 0 40px hsl(var(--primary) / 0.1),
+      0 4px 20px hsl(0 0% 0% / 0.3);
+  }
+
+  .cell-danger {
+    @apply bg-danger/80 text-danger-foreground;
+  }
+
+  .cell-warning {
+    @apply bg-warning/80 text-warning-foreground;
+  }
+
+  .cell-success {
+    @apply bg-success/80 text-success-foreground;
+  }
+
+  .starfield {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(var(--star-white)), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(var(--star-white) / 0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--star-white) / 0.6), transparent),
+      radial-gradient(2px 2px at 130px 80px, hsl(var(--star-white)), transparent),
+      radial-gradient(1px 1px at 160px 120px, hsl(var(--star-white) / 0.7), transparent),
+      radial-gradient(2px 2px at 200px 50px, hsl(var(--star-white) / 0.9), transparent),
+      radial-gradient(1px 1px at 250px 90px, hsl(var(--star-white) / 0.5), transparent),
+      radial-gradient(2px 2px at 300px 130px, hsl(var(--star-white)), transparent);
+    background-size: 350px 200px;
+  }
+}
+
+@layer utilities {
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg) translateX(80px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 
+        0 0 60px hsl(var(--sun-glow) / 0.4),
+        0 0 120px hsl(var(--sun-glow) / 0.2);
+    }
+    50% {
+      box-shadow: 
+        0 0 80px hsl(var(--sun-glow) / 0.5),
+        0 0 160px hsl(var(--sun-glow) / 0.3);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-orbit {
+    animation: orbit 8s linear infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+}
