@@ -17,7 +17,6 @@ const Dashboard = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
 
-        {/* Title */}
         <h1 className="text-4xl font-bold text-yellow-400 flex items-center gap-2">
           ⚡ CodeSun
         </h1>
