@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronLeft, FileCode, AlertCircle, Download, FileText } from 'lucide-react';
+import { ChevronLeft, FileCode, AlertCircle, Download, FileText, History } from 'lucide-react';
+
 import { useNavigate } from 'react-router-dom';
 
 const AnalysisResult = () => {
@@ -49,14 +50,37 @@ const AnalysisResult = () => {
       {/* VIEW 1: THE N x N MATRIX */}
       {view === 'matrix' ? (
         <div className="w-full max-w-5xl flex flex-col items-center">
-          <div className="w-full flex justify-between items-center mb-8">
-            <button onClick={() => navigate('/')} className="flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors group">
-              <ChevronLeft className="group-hover:-translate-x-1 transition-transform" /> Back to Upload
-            </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 hover:bg-white/10">
-              <Download size={16} /> Export Report
-            </button>
-          </div>
+         <div className="w-full flex justify-between items-center mb-8">
+          {/* //buttons to navigate and flagged history */}
+  <button
+    onClick={() => navigate('/')}
+    className="flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors group"
+  >
+    <ChevronLeft className="group-hover:-translate-x-1 transition-transform" />
+    Back to Upload
+  </button>
+
+  {/* Right Side Actions */}
+  <div className="flex items-center gap-3">
+    {/* Flagged History */}
+    <button
+      onClick={() => navigate('/flagged')}
+      className="flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/30 rounded-lg text-sm text-red-400 hover:bg-red-500/30 transition"
+    >
+      <History size={16} />
+      Flagged History
+    </button>
+
+    {/* Export Report */}
+    <button
+      className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 hover:bg-white/10 transition"
+    >
+      <Download size={16} />
+      Export Report
+    </button>
+  </div>
+</div>
+
 
           <div className="w-full bg-[#0d1117]/80 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
             <h2 className="text-3xl font-bold text-white mb-6">Similarity Matrix</h2>
