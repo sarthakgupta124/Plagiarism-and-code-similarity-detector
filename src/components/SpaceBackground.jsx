@@ -34,16 +34,7 @@ const SpaceBackground = () => {
         </div>
       </div>
 
-      {/* 3. Branding Content (Top) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-start pt-20 px-4 pointer-events-none">
-        <h1 className="text-5xl font-bold text-yellow-400 flex items-center gap-3 drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]">
-          ⚡ RayTrace
-        </h1>
-        <p className="mt-4 text-gray-300 text-center max-w-xl text-lg leading-relaxed">
-          Illuminate code similarities with precision. Upload source files
-          and detect potential plagiarism instantly.
-        </p>
-      </div>
+      
 
       <style jsx>{`
         @keyframes spin-slow {
