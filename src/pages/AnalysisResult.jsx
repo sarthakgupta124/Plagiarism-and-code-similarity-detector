@@ -147,7 +147,7 @@ const AnalysisResult = () => {
       )}
 
       {/* Shared Footer */}
-      <p className="mt-12 text-gray-500 text-sm">Built for hackathons • Powered by CodeSun 🌞</p>
+      <p className="mt-12 text-gray-500 text-sm">Built for hackathons • Powered by BugSmashers 🌞</p>
     </div>
   );
 };
